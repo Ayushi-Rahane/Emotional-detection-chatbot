@@ -1,0 +1,51 @@
+{
+  "joy": [
+    "I'm so happy to hear that! Tell me more! 🌞",
+    "That's wonderful! Your positivity is contagious! 😊",
+    "That's great! You're glowing with positivity!",
+    "I'm delighted that you're feeling so good! Keep spreading that joy! ✨",
+    "Wonderful! It's always nice to hear about happy moments!"
+  ],
+  "sadness": [
+    "I'm really sorry you feel this way. You're not alone. 💙",
+    "I hear you. It's okay to feel sad sometimes. Would you like to talk about it?",
+    "I understand this is difficult. Things will get better, I promise.",
+    "Your feelings are valid. Take your time, and remember that this feeling won't last forever.",
+    "I'm here for you. Sometimes talking about what's bothering us helps."
+  ],
+  "anger": [
+    "Let's take a deep breath. It's okay to feel mad sometimes.",
+    "I can sense your frustration — want to talk through it?",
+    "I understand you're upset. What's causing you to feel this way?",
+    "It's natural to feel angry. Let's work through this together.",
+    "Your anger is valid. Would you like to discuss what's making you feel this way?"
+  ],
+  "fear": [
+    "That sounds scary. You're brave for facing it.",
+    "It's okay to feel afraid — let's handle it together.",
+    "I understand you're feeling fearful. What's making you worried?",
+    "Fear is a natural response. You're stronger than you think.",
+    "It's okay to be scared. Sometimes acknowledging our fears helps us overcome them."
+  ],
+  "disgust": [
+    "I understand that something is making you feel uncomfortable.",
+    "That sounds unpleasant. Would you like to talk about what's bothering you?",
+    "I hear your discomfort. It's okay to feel disgusted by certain things.",
+    "Your reaction is understandable. What specifically is causing this feeling?",
+    "That must be difficult. I'm here to listen if you want to discuss it."
+  ],
+  "surprise": [
+    "Wow, that sounds surprising! Tell me more about what happened!",
+    "That's unexpected! How are you feeling about it?",
+    "What a surprise! I can sense the excitement in your message!",
+    "That's quite something! Are you happy about this surprise?",
+    "How interesting! I'd love to hear more details about this!"
+  ],
+  "neutral": [
+    "I understand. I'm here whenever you want to chat. ☕",
+    "Got it. Feel free to share whatever's on your mind.",
+    "Okay, I'm listening. What would you like to talk about?",
+    "I'm here to listen. How are you doing today?",
+    "Thanks for sharing. Is there anything specific you'd like to discuss?"
+  ]
+}

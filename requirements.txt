@@ -1,0 +1,51 @@
+# Web Framework
+Flask==3.1.2
+Werkzeug==3.1.3
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+click==8.1.8
+blinker==1.9.0
+itsdangerous==2.2.0
+
+# Machine Learning & NLP
+transformers==4.40.2
+torch==2.5.1
+scikit-learn==1.6.1
+numpy==2.0.2
+scipy==1.13.1
+joblib==1.5.2
+textblob==0.18.0
+nltk==3.9.2
+
+# Data Processing
+pandas==2.3.3
+python-dateutil==2.9.0.post0
+pytz==2025.2
+tzdata==2025.2
+
+# Visualization
+matplotlib==3.9.4
+seaborn==0.13.2
+pillow==11.3.0
+
+# Utilities
+regex==2025.10.23
+tqdm==4.67.1
+packaging==25.0
+importlib_metadata==8.7.0
+importlib_resources==6.5.2
+typing_extensions==4.14.1
+
+# Testing (optional)
+pytest==8.4.1
+pluggy==1.6.0
+iniconfig==2.1.0
+tomli==2.2.1
+exceptiongroup==1.3.0
+zipp==3.23.0
+
+# OpenCV (optional, for image processing if needed)
+opencv-python==4.12.0.88
+
+# Other
+Pygments==2.19.2
