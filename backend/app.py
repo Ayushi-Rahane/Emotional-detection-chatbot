@@ -110,8 +110,8 @@ def stats():
         return jsonify({"error": f"Internal server error: {str(e)}"}), 500
 
 
-@app.route("/clusters", methods=["GET"])
-def clusters():
+@app.route("/generate_clusters", methods=["GET"])
+def generate_clusters():
     """Generate and return emotion cluster visualization."""
     try:
         cluster_path = get_emotion_clusters()

@@ -10,6 +10,8 @@ Key Features:
 - K-means clustering for emotion embedding visualization
 - PCA for dimensionality reduction
 """
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from textblob import TextBlob
@@ -18,8 +20,9 @@ import numpy as np
 from collections import Counter
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+import matplotlib
+matplotlib.use('Agg')  # ✅ Prevent macOS GUI crash
 import matplotlib.pyplot as plt
-import os
 import logging
 
 logger = logging.getLogger(__name__)

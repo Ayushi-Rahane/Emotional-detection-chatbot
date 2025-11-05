@@ -70,7 +70,7 @@ The setup script will:
 ```bash
 # Clone the repository
 git clone https://github.com/Ayushi-Rahane/Emotion_detection_chatbot.git
-cd EmoBot
+cd Emotion_detection_chatbot
 
 # Create virtual environment
 python -m venv venv
