@@ -1,84 +1,101 @@
-# ✨ Emotion Detection Chatbot 🤖
-An AI-powered chatbot that detects human emotions from text and responds in an empathetic, context-aware manner.
+# Emotion Detection Chatbot  
+
+
+A chatbot designed to understand emotional tone in text and respond with context-aware, empathetic messages.  
+Built using transformer models, sentiment analysis, and basic conversational state tracking.
 
 ---
 
-## 🎯 Project Title & Objective
-**Emotion Detection Chatbot**  
-To build a real-time system that classifies user text into 7 emotions *joy, sadness, anger, fear, disgust, surprise, neutral*  using advanced NLP and Deep Learning techniques.
+## 🎯 Project Objective  
+
+**Emotion Detection Chatbot**
+
+This project aims to overcome the limitations of typical chatbots that fail to detect mood shifts.  
+The goals include:
+
+- Detect emotions accurately with DistilRoBERTa  
+- Refine predictions using sentiment polarity  
+- Track mood transitions through the conversation  
+- Generate emotionally consistent replies  
+- Visualize emotional behaviour patterns  
 
 ---
 
-## 📂 Dataset Details
-- Total Samples: **~20,000**
-- Derived from multiple open-source emotion datasets
-- Final consolidated file: `emotion_dataset.csv`
-- Emotions balanced using stratified splitting
-- Used for training, validation, and baseline testing
+## 📂 Dataset  
+
+
+- 2000 unseen text entries  
+- Six emotion categories: **anger, fear, joy, love, sadness, surprise**  
+- Stored in a simple `text ; label` format  
+- Used for both training and baseline testing  
 
 ---
 
-## 🧠 Algorithm / Model Used
+## 🧠 Models & Methods  
 
-### 🔹 Primary Model
-- **DistilRoBERTa (j-hartmann/emotion-english-distilroberta-base)**
-- Accuracy: **~92%**
-- Libraries: Hugging Face Transformers, PyTorch
+### **Primary Model**
+- DistilRoBERTa (j-hartmann/emotion-english-distilroberta-base)  
+- Accuracy: **~84.1%**  
+- Libraries: Transformers, PyTorch  
 
-### 🔹 Supporting Techniques
-- **TextBlob** for sentiment polarity
-- **Rule-based refinement** for edge cases
-- **Markov Chains** for emotion transitions
-- **K-Means Clustering + PCA** for visualization and pattern analysis
+### **Supporting Techniques**
+- Sentiment polarity → **TextBlob**  
+- Edge-case refinement → rule-based logic  
+- Transition modeling → **Markov Chains**  
+- Pattern analysis → **K-means + PCA**  
 
-### 🔹 Baseline Model
-- **TF-IDF + Logistic Regression**
-- Accuracy: **~75%**
+### **Baseline**
+- TF-IDF + Logistic Regression  
+- Accuracy around **86.9%**
 
 ---
 
-## 📊 Results
+## 📊 Results  
+### **Metrics**
+- Accuracy: 84.1%  
+- Weighted F1: 0.876  
+- Macro F1: 0.838  
 
-### 📌 Performance Metrics
-| Metric | Score |
-|--------|--------|
-| Accuracy | ~92% |
-| Macro F1-Score | ~0.90 |
-| Weighted F1 | ~0.91 |
+### **Class-wise Performance**
+- Sadness: 0.907  
+- Joy: 0.877  
+- Fear: 0.832  
+- Anger: 0.845  
 
-### 📌 Highlights
-- Best performance on: **joy, sadness, neutral**
-- Moderate confusion between **fear** and **surprise**
-- **Disgust** is hardest due to fewer samples
+The model handles subtle emotional cues better than simple keyword-based systems.
 
-### 📌 Visual Outputs (Generated During Project)
-- PCA-based emotion clusters  
+### **Visual Outputs**
+- PCA emotion clusters  
 - Emotion frequency graphs  
 - Transition matrices  
-- Interactive statistics dashboard
+- Interactive mini-dashboard  
 
 ---
 
-## 🏁 Conclusion
-The chatbot successfully demonstrates how transformer-based models can understand subtle emotional cues in text.  
-Integrating NLP, ML, sentiment analysis, and Markov modeling results in accurate, real-time emotion-aware conversations.
+## 🏁 Conclusion  
+
+This chatbot shows how transformer-based models can effectively capture emotional signals in text.  
+By combining NLP, ML, sentiment checks, and transition tracking, it maintains emotional continuity in conversation and produces reliable predictions.
 
 ---
 
-## 🚀 Future Scope
-- Multilingual emotion detection  
-- Voice + text-based emotion recognition  
-- Cloud deployment for scalable usage  
-- Fine-tuning with domain-specific data  
-- Personalized responses using emotion history  
-- Remove rule-based logic and use small LLM refinement layer  
+## 🚀 Future Enhancements  
+
+- Multimodal emotion detection (voice + face)  
+- Domain-specific fine-tuning  
+- Removing rule-based steps with dynamic AI response layers  
+- Web & mobile deployment  
+- Emotional intensity score (0–100)  
+- Mood-based recommendations  
+- Long-term emotion analytics for individuals  
 
 ---
 
-## 📚 References
-- Hugging Face Transformers  
-- DistilRoBERTa emotion model by j-hartmann  
-- NLTK, TextBlob documentation  
-- “Attention Is All You Need” — Transformer Architecture  
-- AIML Lab Hackathon Resources  
+## 📚 References  
+
+- A. Pophale, S. Gite, A. Thombre, 2021 – Emotion recognition using chatbot system.
+- J. Antony, S. G. Sudha, R. Prabha, 2021 – Emotion recognition-based mental healthcare chatbots: A survey. Link
+- P. Zhong, D. Wang, C. Miao, 2019 – Knowledge-enriched transformer for emotion detection in textual conversations. Link
+- C. Cortiz, 2021 – Exploring transformers in emotion recognition: Comparison of BERT, DistilBERT, RoBERTa, XLNet and ELECTRA. Link
+- L. Bulla, T. Biesialska, J. D. Williams, M. Wiegand, 2023 – Towards distribution-shift robust text classification of emotions. ACL 2023.
 
