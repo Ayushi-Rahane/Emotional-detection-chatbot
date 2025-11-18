@@ -1,0 +1,79 @@
+{
+  "joy": {
+    "songs": [
+      { "title": "Happy - Pharrell Williams", "url": "https://www.youtube.com/watch?v=ZbZSe6N_BXs" },
+      { "title": "Walking on Sunshine - Katrina & The Waves", "url": "https://www.youtube.com/watch?v=iPUmE-tne5U" },
+      { "title": "Good as Hell - Lizzo", "url": "https://www.youtube.com/watch?v=U9BwWKXjVaI" }
+    ],
+    "quotes": [
+      "Happiness is a direction, not a place. — Sydney J. Harris",
+      "The purpose of our lives is to be happy. — Dalai Lama"
+    ]
+  },
+  "sadness": {
+    "songs": [
+      { "title": "Fix You - Coldplay", "url": "https://www.youtube.com/watch?v=k4V3Mo61fJM" },
+      { "title": "Someone Like You - Adele", "url": "https://www.youtube.com/watch?v=hLQl3WQQoQ0" },
+      { "title": "The Night We Met - Lord Huron", "url": "https://www.youtube.com/watch?v=KtlgYxa6BMU" }
+    ],
+    "quotes": [
+      "This too shall pass.",
+      "Tears are words the heart can't express. — Gerard Way"
+    ]
+  },
+  "anger": {
+    "songs": [
+      { "title": "Break Stuff - Limp Bizkit", "url": "https://www.youtube.com/watch?v=ZpUYjpKg9KY" },
+      { "title": "Killing In The Name - Rage Against The Machine", "url": "https://www.youtube.com/watch?v=bWXazVhlyxQ" },
+      { "title": "You Oughta Know - Alanis Morissette", "url": "https://www.youtube.com/watch?v=NPcyTyilmYY" }
+    ],
+    "quotes": [
+      "For every minute you remain angry you give up sixty seconds of peace. — Ralph Waldo Emerson",
+      "Speak when you are angry and you will make the best speech you will ever regret. — Ambrose Bierce"
+    ]
+  },
+  "fear": {
+    "songs": [
+      { "title": "Everybody's Got to Learn Sometime - The Korgis", "url": "https://www.youtube.com/watch?v=GkCw4_o1jYg" },
+      { "title": "Breathe Me - Sia", "url": "https://www.youtube.com/watch?v=ghPcYqn0p4Y" },
+      { "title": "Hide and Seek - Imogen Heap", "url": "https://www.youtube.com/watch?v=UYIAfiVGluk" }
+    ],
+    "quotes": [
+      "Do the thing you fear and the death of fear is certain. — Ralph Waldo Emerson",
+      "Fear is only as deep as the mind allows. — Japanese Proverb"
+    ]
+  },
+  "disgust": {
+    "songs": [
+      { "title": "Crazy - Gnarls Barkley", "url": "https://www.youtube.com/watch?v=bd2B6SjMh_w" },
+      { "title": "Creep - Radiohead", "url": "https://www.youtube.com/watch?v=XFkzRNyygfk" },
+      { "title": "Bad Guy - Billie Eilish", "url": "https://www.youtube.com/watch?v=DyDfgMOUjCI" }
+    ],
+    "quotes": [
+      "Disgust is often more deeply felt than anger. — Samuel Johnson",
+      "Don't let the behavior of others destroy your inner peace. — Dalai Lama"
+    ]
+  },
+  "surprise": {
+    "songs": [
+      { "title": "Survivor - Destiny's Child", "url": "https://www.youtube.com/watch?v=Wmc8bQoL-J0" },
+      { "title": "A Sky Full Of Stars - Coldplay", "url": "https://www.youtube.com/watch?v=VPRjCeoBqrI" },
+      { "title": "Uptown Funk - Mark Ronson ft. Bruno Mars", "url": "https://www.youtube.com/watch?v=OPf0YbXqDm0" }
+    ],
+    "quotes": [
+      "Life is full of surprises and serendipity.",
+      "Expect the unexpected."
+    ]
+  },
+  "neutral": {
+    "songs": [
+      { "title": "Let It Be - The Beatles", "url": "https://www.youtube.com/watch?v=QDYfEBY9NM4" },
+      { "title": "Comfortably Numb - Pink Floyd", "url": "https://www.youtube.com/watch?v=_FrOQC-zEog" },
+      { "title": "Yellow - Coldplay", "url": "https://www.youtube.com/watch?v=yKNxeF4KMsY" }
+    ],
+    "quotes": [
+      "Keep calm and carry on.",
+      "In the middle of difficulty lies opportunity. — Albert Einstein"
+    ]
+  }
+}

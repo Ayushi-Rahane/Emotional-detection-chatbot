@@ -13,7 +13,9 @@ Key Features:
 import os
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+# Add toggle to choose LSTM vs transformer
+USE_LSTM = os.getenv("USE_LSTM", "true").lower() in ("1", "true", "yes")
+
 from textblob import TextBlob
 import torch
 import numpy as np
@@ -32,14 +34,24 @@ MODEL_NAME = "j-hartmann/emotion-english-distilroberta-base"
 EMOTION_LABELS = ['anger', 'disgust', 'fear', 'joy', 'neutral', 'sadness', 'surprise']
 
 # Initialize model components (loaded once at module import)
-try:
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
-    model.eval()  # Set to evaluation mode
-    logger.info(f"Loaded emotion model: {MODEL_NAME}")
-except Exception as e:
-    logger.error(f"Failed to load model: {e}")
-    raise
+# If using LSTM, import the lightweight LSTM module instead of loading transformer at import-time.
+if USE_LSTM:
+    try:
+        from rnn_emotion_model import predict as lstm_predict  # backend/rnn_emotion_model.py
+        logger.info("Using LSTM-based emotion predictor (USE_LSTM=True)")
+    except Exception as e:
+        logger.error(f"Failed to import rnn_emotion_model: {e}")
+        raise
+else:
+    try:
+        from transformers import AutoTokenizer, AutoModelForSequenceClassification
+        tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+        model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
+        model.eval()  # Set to evaluation mode
+        logger.info(f"Loaded emotion model: {MODEL_NAME}")
+    except Exception as e:
+        logger.error(f"Failed to load model: {e}")
+        raise
 
 # Emotion transition memory (Markov-like model)
 emotion_texts = []  # Store original text for clustering
@@ -50,14 +62,13 @@ transition_matrix = {e1: {e2: 0 for e2 in EMOTION_LABELS} for e1 in EMOTION_LABE
 def transformer_emotion(text):
     """
     Predict emotion using transformer model.
-    
-    Args:
-        text (str): Input text to classify
-        
-    Returns:
-        tuple: (predicted_emotion_label, emotion_probability_distribution)
+    If USE_LSTM is True this delegates to the LSTM predictor.
     """
     try:
+        if USE_LSTM:
+            # LSTM predictor returns (label, probs)
+            return lstm_predict(text)
+        # else run transformer
         inputs = tokenizer(
             text, 
             return_tensors="pt", 
@@ -116,18 +127,12 @@ def update_transition(prev_emotion, current_emotion):
 def predict_emotion(text):
     """
     Main emotion prediction function with hybrid approach.
-    Combines transformer model, sentiment analysis, and rule-based refinement.
-    
-    Args:
-        text (str): User input text
-        
-    Returns:
-        tuple: (predicted_emotion_label, emotion_embedding_probabilities)
+    Combines transformer/LSTM model, sentiment analysis, and rule-based refinement.
     """
     if not text or not text.strip():
         return "neutral", np.array([1.0/len(EMOTION_LABELS)] * len(EMOTION_LABELS))
     
-    # Get transformer-based prediction
+    # Get model-based prediction (delegates to LSTM if USE_LSTM is True)
     transformer_label, embedding = transformer_emotion(text)
     
     # Get sentiment for rule-based refinement

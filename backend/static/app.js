@@ -193,43 +193,74 @@ function toggleStats() {
  */
 async function loadStats() {
   if (!statsPanel) return;
+
   try {
     const response = await fetch(STATS_URL);
     if (!response.ok) throw new Error("Failed to fetch stats");
+
     const data = await response.json();
-    if (data.statistics) displayStatistics(data.statistics);
-  } catch (err) {
-    console.error("Error loading stats:", err);
-    const content = statsPanel.querySelector(".stats-content");
-    if (content) content.innerHTML = "<p>Error loading statistics</p>";
+    displayStatistics(data);
+  } catch (error) {
+    console.error("Error loading stats:", error);
   }
 }
 
-/**
- * Display emotion statistics
- */
+
 function displayStatistics(stats) {
   const content = statsPanel.querySelector(".stats-content");
   if (!content) return;
-  let html = `<p><strong>Total Interactions:</strong> ${stats.total_interactions || 0}</p>`;
-  if (stats.emotion_percentages) {
+
+  const s = stats.statistics || {};   // <-- FIX
+
+  let html = `<p><strong>Total Interactions:</strong> ${s.total_interactions || 0}</p>`;
+
+  if (s.emotion_percentages) {
     html += '<div class="emotion-bars">';
-    for (const [emotion, percentage] of Object.entries(stats.emotion_percentages)) {
+    for (const [emotion, percentage] of Object.entries(s.emotion_percentages)) {
       const color = emotionColors[emotion.toLowerCase()] || "#E0E0E0";
       html += `
         <div class="emotion-bar-item">
-          <span>${emotion}</span>
+          <span><strong>${emotion}</strong></span>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" 
-                 style="width: ${percentage}%; background-color: ${color};">
+            <div class="progress-bar" style="width:${percentage}%; background:${color};">
               ${percentage.toFixed(1)}%
             </div>
           </div>
-        </div>`;
+        </div>
+      `;
     }
     html += "</div>";
   }
-  if (stats.most_common) html += `<p><strong>Most Common:</strong> ${stats.most_common}</p>`;
+
+  if (s.most_common) {
+    html += `<p style="margin-top:10px;"><strong>Final Emotion:</strong> ${s.most_common}</p>`;
+  }
+
+  // RECOMMENDATIONS (unchanged)
+  if (stats.recommendations) {
+    const recs = stats.recommendations;
+    html += `<div style="margin-top:15px; padding:12px; background:#f7f7f7; border-radius:8px;">
+      <strong>Recommendations:</strong>`;
+
+    if (recs.songs && recs.songs.length) {
+      html += `<p style="margin-top:8px;"><strong>Songs:</strong></p><ul>`;
+      recs.songs.forEach(s => {
+        html += `<li><a href="${s.url}" target="_blank">${s.title}</a></li>`;
+      });
+      html += `</ul>`;
+    }
+
+    if (recs.quotes && recs.quotes.length) {
+      html += `<p style="margin-top:8px;"><strong>Quotes:</strong></p><ul>`;
+      recs.quotes.forEach(q => {
+        html += `<li>${q}</li>`;
+      });
+      html += `</ul>`;
+    }
+
+    html += `</div>`;
+  }
+
   content.innerHTML = html;
 }
 
